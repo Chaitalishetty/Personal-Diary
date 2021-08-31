@@ -61,9 +61,10 @@
                 display_diary();
                 }
         }
-                let diary_array=[];
-                let diary_list=[];
+                
                 function display_diary(){
+                    let diary_array=[];
+                    let diary_list=[];
                     firebase.database().ref("data").once("value",function(snapshot){
                         snapshot.forEach(function(childSnapshot){
                             var childKey=childSnapshot.key;
