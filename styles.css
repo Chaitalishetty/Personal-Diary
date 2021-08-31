@@ -30,7 +30,7 @@ body{
     border-radius: 20px;
     border: none;
     color:black;
-    transform: translateX(80vw);
+    transform: translateX(70vw);
 }
 .add_button:hover{
     opacity: 0.8;
