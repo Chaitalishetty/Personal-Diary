@@ -4,18 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="styles.css" type="text/css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Diary</title>
 </head>
 <body>
-    <form class="login_form">
-        <input type="text" placeholder="user" id="user_name" >
-        <input type="password" placeholder="password" id="password">
-      <button type="submit">Login</button>
-    </form>
+    <button class="add_button" onclick="add_new()"><b>+ Add to diary</b></button>
+    <div id="add_form">
+        <label>Add the date here :  </label><br>
+        <input type="date" id="date_box" style="width:150px"/></br>
+        <textarea type="text" id="text_box" placeholder="write your message here.✍ "></textarea></br>
+        <label>You can add images here :</label><br>
+        <input type="file" id="text_image" placeholder="upload your image.."></br></br>
+        <button class="add_form btn btn-primary">Add </button>
+    </div>
+
+    
+   
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase.js"></script>
     <script src="firebase.js"></script>
-
+    <div class="diary">
+     Start adding to your diary...... 😊     
+    </div>
 
 </body>
-
+<script>
+function add_new(){
+    document.getElementById("add_form").style.display="block";
+}
+</script>
 </html>

@@ -5,36 +5,49 @@ body{
 }
 #add_form{
     display: none;
-    width:60vw
+    width:65vw;
+    background-color: white;
+    margin: 3vw;
+    padding: 3vw;
+    transform: translateX(20%);
+    box-shadow:1px 3px 10px 0px #7d7a7a;
+
 }
 #add_form textarea,input{
     font-family: 'Patrick Hand', cursive!important;
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin: 2vw;
+}
+#add_form textarea{
+    width:55vw;
+    padding: 10px;
 }
 .add_button{
     font-size: 20px;
-    background-color: blue;
+    background-color: #ffc83d;
     padding:20px;
     margin:10px;
     border-radius: 20px;
     border: none;
-    color:white
-
+    color:black;
+    transform: translateX(80vw);
 }
 .add_button:hover{
     opacity: 0.8;
 }
 .diary{
-    width:60vw;
+    width:65vw;
     height: auto;
     background-color: cornsilk;
     background-repeat: repeat-y;
     background-size: cover;
-
+    transform: translateX(20%);
     font-family: 'Patrick Hand', cursive;
     font-size: 3rem;
     text-align:center;
     word-wrap: break-word;
+    margin: 3vw;
+    padding: 3vw;
 }
 #diary_content{
     width:60vw;
