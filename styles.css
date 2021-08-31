@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+body{
+    background: url("diary_background.jpg");
+    font-family: 'Patrick Hand', cursive!important;
+}
+#add_form{
+    display: none;
+    width:60vw
+}
+#add_form textarea,input{
+    font-family: 'Patrick Hand', cursive!important;
+    font-size: 2.5rem;
+}
+.add_button{
+    font-size: 20px;
+    background-color: blue;
+    padding:20px;
+    margin:10px;
+    border-radius: 20px;
+    border: none;
+    color:white
+
+}
+.add_button:hover{
+    opacity: 0.8;
+}
+.diary{
+    width:60vw;
+    height: auto;
+    background-color: cornsilk;
+    background-repeat: repeat-y;
+    background-size: cover;
+
+    font-family: 'Patrick Hand', cursive;
+    font-size: 3rem;
+    text-align:center;
+    word-wrap: break-word;
+}
+#diary_content{
+    width:60vw;
+    height:auto;
+    
+}
+.diary img{
+    width:25vw;
+    height:auto;
+    border: 20px solid white;
+}
