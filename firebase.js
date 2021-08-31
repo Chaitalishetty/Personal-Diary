@@ -5,38 +5,50 @@
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         var firebaseConfig = {
-          apiKey: "AIzaSyAgwgQU57SYUJE2zDKbvoLdpTWc8DtwCZ0",
-          authDomain: "personal-website-d9161.firebaseapp.com",
-          databaseURL: "https://personal-website-d9161-default-rtdb.firebaseio.com",
-          projectId: "personal-website-d9161",
-          storageBucket: "personal-website-d9161.appspot.com",
-          messagingSenderId: "326637699745",
-          appId: "1:326637699745:web:54831aedb9927f0ccfe6e0",
-          measurementId: "G-SK5YHDXQ1X"
+            apiKey: "AIzaSyC9BIN5f2zosY0bBlQtg48DdZANacXig8E",
+
+            authDomain: "diary-7056c.firebaseapp.com",
+          
+            databaseURL: "https://diary-7056c-default-rtdb.europe-west1.firebasedatabase.app",
+          
+            projectId: "diary-7056c",
+          
+            storageBucket: "diary-7056c.appspot.com",
+          
+            messagingSenderId: "1060511834179",
+          
+            appId: "1:1060511834179:web:89584c00ce955b9b2734f6",
+          
+            measurementId: "G-EX8T862X3F"
+          
+
+
         };
+
         firebase.initializeApp(firebaseConfig);
+
         let diary_data = firebase.database().ref("data");
         document.querySelector(".add_data").addEventListener("click", submitForm);
         function submitForm(e) {
+            document.querySelector(".diary").innerHTML="";
             e.preventDefault();
             //   Get input Values
             let date = document.querySelector("#date_box").value;
             let message = document.querySelector("#text_box").value;
             let diary_image= document.querySelector("#text_image");
-            if( diary_image.value==""){
-                var image=null;
-            }
-            else if(date=="" && message=="" && diary_image.value==""){
+            
+            if(date=="" && message=="" && diary_image.value==""){
                 alert("You need to fill something to your diary");
+            }
+            else if( diary_image.value==""){
+                var image="";
+                saveDiary(date,message,image);
             }
             else{
                 var image=URL.createObjectURL(diary_image.files[0]);
-            
                 saveDiary(date,message,image);
-                    display_diary();
 
-
-                // Save infos to Firebase
+            }
                 function saveDiary(date,message,image) {
                 let newDiary = diary_data.push();
 
@@ -45,30 +57,43 @@
                     message:message,
                     image:image,
                 });
-                alert("Added")
+                alert("Added");
+                display_diary();
                 }
-                var data_array=new Array();
-                var data_diary=new Array();
+        }
+                let diary_array=[];
+                let diary_list=[];
                 function display_diary(){
                     firebase.database().ref("data").once("value",function(snapshot){
                         snapshot.forEach(function(childSnapshot){
                             var childKey=childSnapshot.key;
                             var childData=childSnapshot.val();
                             data_array=[childData["date"],childData["message"],childData["image"]];
-                            data_diary.push(data_array);
+                            
+                            diary_array=[childData["date"],childData["message"],childData["image"]]
+                            diary_list.push(diary_array);
+                           
                         });
-                        // diary=data_diary.reverse();
-                        // for(let i=0;i<data_diary.length;i++){
-                        //     for(let j=0;j<3;i++){
-                        //         document.querySelector(".diary").innerHTML=data_diary[i][j];
-                        //     }
-                        // }
+                        diary_list.reverse();
+                        
+                        for(var i=0;i<diary_list.length;++i){
+                            
+                            for(var j=0;j<2;++j){
+                                document.querySelector(".diary").innerHTML+=diary_list[i][j]+'</br>';
+                            }
+                            var img = document.createElement('img');
+                            img.src = diary_list[i][2];
+                            document.querySelector(".diary").appendChild(img);
+                            document.querySelector(".diary").innerHTML+="</br>";
+
+                        }
                         
                         
                     });
+
                     
-                }
-            }
+                
+            
     }
 
         
